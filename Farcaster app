@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ma Mini App Farcaster</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="module" src="script.js" defer></script>
+    <!-- Manifest pour Farcaster -->
+    <link rel="manifest" href="/.well-known/farcaster.json">
+</head>
+<body>
+    <div id="app">
+        <h1>Hello World depuis Farcaster !</h1>
+        <p id="user-info">Chargement...</p>
+        <button id="notify-btn">Envoyer une notification</button>
+    </div>
+</body>
+</html>
+body {
+    font-family: Arial, sans-serif;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+h1 {
+    color: #1da1f2; /* Couleur Farcaster */
+}
+
+button {
+    background-color: #1da1f2;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0d8bd9;
+}
+// Import du SDK Mini App (installez via npm: npm install @farcaster/miniapp-sdk)
+import { MiniAppSDK } from '@farcaster/miniapp-sdk';
+
+const sdk = new MiniAppSDK();
+
+// Attendre que le DOM soit chargé
+document.addEventListener('DOMContentLoaded', async () => {
+    try {
+        // Récupérer les infos utilisateur (ex. : FID - Farcaster ID)
+        const user = await sdk.actions.getUser();
+        document.getElementById('user-info').textContent = `Bonjour, utilisateur FID: ${user.fid || 'Inconnu'}`;
+    } catch (error) {
+        console.error('Erreur lors de la récupération utilisateur:', error);
+        document.getElementById('user-info').textContent = 'Erreur de connexion';
+    }
+
+    // Bouton pour envoyer une notification
+    document.getElementById('notify-btn').addEventListener('click', async () => {
+        try {
+            await sdk.actions.sendNotification({
+                title: 'Hello de ma Mini App !',
+                body: 'Ceci est une notification test.',
+                icon: '/icon.png' // Ajoutez une icône si besoin
+            });
+            alert('Notification envoyée !');
+        } catch (error) {
+            console.error('Erreur notification:', error);
+        }
+    });
+});{
+    "name": "Ma Mini App Simple",
+    "version": "1.0.0",
+    "description": "Une mini app d'exemple pour Farcaster",
+    "author": {
+        "fid": 12345, // Remplacez par votre FID Farcaster
+        "username": "votre_username"
+    },
+    "webhookUrl": "https://votre-domaine.com/webhook", // URL pour recevoir les événements (optionnel pour mini app basique)
+    "notificationUrl": "https://votre-domaine.com/notify" // URL pour les notifications (optionnel)
+}
