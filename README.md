@@ -292,3 +292,33 @@ In this guide, you explored Farcaster Mini Apps — the simplest way to create e
 You also discovered the key capabilities of Mini Apps and how you can use the [Monad Farcaster MiniApp Template](https://github.com/monad-developers/monad-miniapp-template) to build your own.
 
 For more details, check out the official Mini App documentation [here](https://miniapps.farcaster.xyz/).
+
+
+
+---
+
+## 🧩 Contributing
+
+Contributions are welcome!  
+If you'd like to improve the template, fix a bug, or add a new example, follow these steps:
+
+1. Fork this repository  
+2. Create a new branch (`git checkout -b feature/my-improvement`)  
+3. Commit your changes (`git commit -m 'Add my improvement'`)  
+4. Push to your branch (`git push origin feature/my-improvement`)  
+5. Open a Pull Request 🚀
+
+We review all PRs as fast as possible!
+
+---
+
+## 💬 Support
+
+If you encounter any issues or have questions about building your Farcaster MiniApp, feel free to:
+
+- Open an issue on this repository  
+- Reach out on Farcaster  
+- Check the [official MiniApp documentation](https://miniapps.farcaster.xyz/) for guidance  
+
+Built with ❤️ by the community.
+
