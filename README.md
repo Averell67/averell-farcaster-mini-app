@@ -276,7 +276,7 @@ const farcasterConfig = {
         primaryCategory: "developer-tools",
         buttonTitle: "Launch Template",
         splashImageUrl: `${appUrl}/images/splash.png`, // URL of image to show on loading screen.	
-        splashBackgroundColor: "#ffffff", // Hex color code to use on loading screen.
+        splashBackgroundColor: "#fff", // Hex color code to use on loading screen.
     }
 };
 
